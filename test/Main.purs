@@ -3,6 +3,7 @@ module Test.Main where
 import Prelude
 
 import Effect (Effect)
+import Effect.Console as Effect.Console
 import Record (delete, equal, get, insert, merge, modify, rename, set)
 import Record.Builder as Builder
 import Record.Unsafe (unsafeHas)
@@ -66,3 +67,5 @@ main = do
     let { x, y, z } = Builder.build (Builder.flip Builder.union { x: 1, y: "y" }) { y: 2, z: true }
           :: { x :: Int, y :: Int, y :: String, z :: Boolean }
     in x == 1 && y == 2 && z
+
+  Effect.Console.log "All tests passed!"
